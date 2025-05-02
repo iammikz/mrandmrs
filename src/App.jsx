@@ -1,11 +1,21 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { Carousel } from "antd";
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const contentStyle = {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    // background: '#364d79',
+    background: 'transparent',
+  };
+  
   return (
     <>
       <div>
@@ -17,6 +27,20 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
+        <div>
+          <h3 style={contentStyle}>1</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>2</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>3</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>4</h3>
+        </div>
+      </Carousel>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
