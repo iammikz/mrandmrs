@@ -6,14 +6,19 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   /* background-color: #242424; */
-  background-color: #2EC20A;
-  /* background-image: url("./assets/images/greenhearts.jpg"); */
+  background-color: #60aa4e;
+  background-image: url("./../assets/images/greenhearts.jpg");
   background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Honeybee';
+  src: local('Honeybee'),url(../assets/fonts/honeybee.ttf) format('truetype');
 }
 
 a {
@@ -68,4 +73,22 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.imgSlide {
+  place-self: center;
+  max-height: 400px;
+  max-width: 800px;
+  /* width: "expression(this.width > 500 ? 500: true)"; */
+
+  border-radius: 8px 8px;
+}
+
+.cardSlide {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.fontHoneybee {
+  font-family: 'Honeybee';
 }
