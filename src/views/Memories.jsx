@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import Music from './Music';
 import Slideshow from './Slideshow';
+import SlideshowSwiper from './SlideshowSwiper';
 import { Button, ConfigProvider, Modal, Space } from 'antd';
+import { useSearchParams } from 'react-router-dom';
 
 const Memories = (props) => {
     const [count, setCount] = useState(0);
     const [toggleMusic,setToggleMusic] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const live = searchParams?.get("live") ?? false;
 
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
     const [loading, setLoading] = useState(false);
+    const [toggleNextSlide,setToggleNextSlide] = useState(false);
     
     const toggleModal = (idx, target) => {
       setIsModalOpen(p => {
@@ -24,6 +29,7 @@ const Memories = (props) => {
         paddingInlineStart: 5,
       },
       body: {
+        background: '#589b47',
         // boxShadow: 'inset 0 0 5px #999',
         borderRadius: 5,
       },
@@ -34,7 +40,9 @@ const Memories = (props) => {
         // borderTop: '1px solid #333',
       },
       content: {
-        boxShadow: '0 0 30px #999',
+        borderRadius: 8,
+        background: '#589b47',
+        boxShadow: '0 0 30px #444',
       },
     };
 
@@ -48,6 +56,7 @@ const Memories = (props) => {
     const handleOk = () => {
         toggleModal(0, false);
         setToggleMusic(true);
+        setToggleNextSlide(true);
     };
 
   return (
@@ -71,9 +80,10 @@ const Memories = (props) => {
                 </div>
         </Modal>
 
-        <h1 class="fontHoneybee" style={{fontSize: "80px", lineHeight: 0}} >You + Me</h1>
-        <Slideshow contentStyle={props.contentStyle}/>
-        <Music toggleMusic={{toggleMusic}}/>
+        <h1 class="fontHoneybee" style={{fontSize: "80px", lineHeight: 0}} >{(live ? "Julie + Miki" : "You + Me")}</h1>
+        {/* <Slideshow contentStyle={props.contentStyle}/> */}
+        <SlideshowSwiper contentStyle={props.contentStyle} loadFirstSlide={toggleNextSlide}/>
+        <Music toggleMusic={{toggleMusic}} />
     </>
   )
 }

@@ -28,7 +28,7 @@ const Slideshow = (props) => {
                     key={index} 
                     alt={`Image ${index + 1}`}
                     style={{
-                        backgroundColor: "blue",
+                        // backgroundColor: "blue",
                         // backgroundSize: "cover",
                         backgroundImage: `url(${image.default})`,
                         width: "900px",

@@ -24,7 +24,7 @@ const Music = (prop) => {
     }
 
   return (
-    <div onClick={togglePlay}>{enableSound ? 'Playing' : 'Paused'}</div>
+    <div class="fontHoneybee" onClick={togglePlay}>Music {enableSound ? 'Playing' : 'Paused'}</div>
   )
 }
 
