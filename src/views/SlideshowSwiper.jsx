@@ -67,6 +67,7 @@ const SlideshowSwiper = (props) => {
                 delay: 2500,
                 disableOnInteraction: false
             }}
+            speed={2500}
             grabCursor={true}
             centeredSlides={true}
             loop={true}
