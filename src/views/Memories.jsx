@@ -4,6 +4,7 @@ import Slideshow from './Slideshow';
 import SlideshowSwiper from './SlideshowSwiper';
 import { Button, ConfigProvider, Modal, Space } from 'antd';
 import { useSearchParams } from 'react-router-dom';
+import Animatedheart from './Animatedheart';
 
 const Memories = (props) => {
     const [count, setCount] = useState(0);
@@ -12,7 +13,7 @@ const Memories = (props) => {
     const live = searchParams?.get("live") ?? false;
 
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
-    const [loading, setLoading] = useState(false);
+    const [hasLoaded, setHasLoaded] = useState(false);
     const [toggleNextSlide,setToggleNextSlide] = useState(false);
     
     const toggleModal = (idx, target) => {
@@ -46,23 +47,42 @@ const Memories = (props) => {
       },
     };
 
-    useEffect(() => {
-        if (!loading) {
-            setLoading(true);
-            toggleModal(0, true);
-        }
-    },[]);
-
     const handleOk = () => {
+      if (!hasLoaded) {
+        console.log(hasLoaded);
+        setHasLoaded(true);
         toggleModal(0, false);
         setToggleMusic(true);
         setToggleNextSlide(true);
+      }
     };
+
+    useEffect(() => {
+      console.log(hasLoaded);
+    },[hasLoaded])
+
+    useEffect(() => {
+      const handleClick = () => {
+        // Action to perform on the first click
+        console.log('Body clicked once!');
+        handleOk();
+  
+        // Remove the event listener after the first click
+        document.body.removeEventListener('click', handleClick);
+      };
+  
+      document.body.addEventListener('click', handleClick);
+  
+      // Clean up the event listener when the component unmounts
+      return () => {
+        document.body.removeEventListener('click', handleClick);
+      };
+    }, []);
 
   return (
     <>
 
-        <Modal
+        {/* <Modal
             title=""
             width={'80%'}
             open={isModalOpen[0]}
@@ -78,12 +98,13 @@ const Memories = (props) => {
                         Click Me!
                     </Button>
                 </div>
-        </Modal>
+        </Modal> */}
 
         <h1 class="fontHoneybee" style={{fontSize: "80px", lineHeight: 0}} >{(live ? "Julie + Miki" : "You + Me")}</h1>
         {/* <Slideshow contentStyle={props.contentStyle}/> */}
+        <Animatedheart/>
         <SlideshowSwiper contentStyle={props.contentStyle} loadFirstSlide={toggleNextSlide}/>
-        <Music toggleMusic={{toggleMusic}} />
+        <Music toggleMusic={{toggleMusic}}  hasLoaded={{hasLoaded}}/>
     </>
   )
 }

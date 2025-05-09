@@ -14,17 +14,17 @@ const Music = (prop) => {
     },[toggleMusic]);
 
     const togglePlay = () => {
-        console.log(audio);
+        console.log(enableSound);
         if (enableSound) {
-            audio.pause();
-        }else{
             audio.play();
+        }else{
+            audio.pause();
         }
         setEnableSound(!enableSound);
     }
 
   return (
-    <div class="fontHoneybee" onClick={togglePlay}>Music {enableSound ? 'Playing' : 'Paused'}</div>
+    <div class="fontHoneybee" onClick={togglePlay}>{!enableSound ? 'Playing' : 'Touch to Play'} Music</div>
   )
 }
 
