@@ -65,7 +65,8 @@ const SlideshowSwiper = (props) => {
             effect={'coverflow'}
             autoplay= {{
                 delay: 2500,
-                disableOnInteraction: false
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
             }}
             speed={2500}
             grabCursor={true}
