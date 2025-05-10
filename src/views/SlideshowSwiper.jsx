@@ -31,8 +31,8 @@ const SlideshowSwiper = (props) => {
     const getCardImages = (isTest) => {
         const imageLoc = '../assets/sampleimgs/*.{png,jpg,jpeg,svg}';
         console.log(imageLoc);
-        const images = import.meta.glob('../assets/memories/*.{png,jpg,jpeg,svg}', { eager: true });
-        const sampleimgs = import.meta.glob('../assets/sampleimgs/*.{png,jpg,jpeg,svg}', { eager: true });
+        const images = import.meta.glob('../assets/memories/*.{png,jpg,JPG,jpeg,svg,gif}', { eager: true });
+        const sampleimgs = import.meta.glob('../assets/sampleimgs/*.{png,jpg,JPG,jpeg,svg,gif}', { eager: true });
 
         return  Object.values((isTest ? sampleimgs : images )).map((image, index) => (
             <SwiperSlide>
