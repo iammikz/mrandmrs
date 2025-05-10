@@ -87,3 +87,22 @@ button:focus-visible {
 .fontHoneybee {
   font-family: 'Honeybee';
 }
+
+.qrRedirectLink {
+  position: absolute;
+  background-image: url("../assets/images/redirectQR.png");
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  top: 100%;
+  left: 5px;
+  overflow: hidden;
+  transform: translateY(-200px);
+  z-index: 1000;
+}
+
+@media (max-width: 500px) {
+  .qrRedirectLink{
+    visibility: hidden;
+  }
+}

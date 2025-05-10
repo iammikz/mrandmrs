@@ -105,6 +105,7 @@ const Memories = (props) => {
         <Animatedheart/>
         <SlideshowSwiper contentStyle={props.contentStyle} loadFirstSlide={toggleNextSlide}/>
         <Music toggleMusic={{toggleMusic}}  hasLoaded={{hasLoaded}}/>
+        <div className='qrRedirectLink'></div>
     </>
   )
 }
