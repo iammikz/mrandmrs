@@ -100,7 +100,7 @@ const Memories = (props) => {
                 </div>
         </Modal> */}
 
-        <h1 class="fontHoneybee" style={{fontSize: "80px", lineHeight: 0}} >{(live ? "Julie + Miki" : "You + Me")}</h1>
+        <h1 class="fontHoneybee" style={{fontSize: "80px", lineHeight: 0,textShadow: "2px 2px rgb(0, 0, 0)"}} >{(live ? "Julie + Miki" : "You + Me")}</h1>
         {/* <Slideshow contentStyle={props.contentStyle}/> */}
         <Animatedheart/>
         <SlideshowSwiper contentStyle={props.contentStyle} loadFirstSlide={toggleNextSlide}/>
