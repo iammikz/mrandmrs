@@ -4,11 +4,10 @@ import { useSearchParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import "swiper/css/effect-fade";
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { EffectCoverflow, EffectFade, Pagination, Navigation, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Navigation, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
 const SlideshowSwiper = (props) => {
     const {contentStyle, loadFirstSlide } = props;
@@ -81,18 +80,13 @@ const SlideshowSwiper = (props) => {
                 modifier: 4,
                 slideShadows: true,  
             }}
-            breakpoints={{
-                500: {
-                    effect: "fade",
-                }
-            }}
             pagination={{ el: '.swiper-pagination', clickable: true }}
             navigation={{
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
             clickable: true,
             }}
-            modules={[EffectCoverflow, EffectFade, Pagination, Navigation, Autoplay]}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
             className="swiper_container"
         >
             {imageSlide}
