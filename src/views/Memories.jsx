@@ -10,7 +10,7 @@ const Memories = (props) => {
     const [count, setCount] = useState(0);
     const [toggleMusic,setToggleMusic] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
-    const live = searchParams?.get("live") ?? false;
+    const live = searchParams?.get("live") ?? true;
 
     const [isModalOpen, setIsModalOpen] = useState([false, false]);
     const [hasLoaded, setHasLoaded] = useState(false);

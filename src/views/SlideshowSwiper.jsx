@@ -12,7 +12,7 @@ import { EffectCoverflow, Pagination, Navigation, Scrollbar, A11y, Autoplay } fr
 const SlideshowSwiper = (props) => {
     const {contentStyle, loadFirstSlide } = props;
     const [searchParams, setSearchParams] = useSearchParams();
-    const live = searchParams?.get("live") ?? false;
+    const live = searchParams?.get("live") ?? true;
     const [content, setContent] = useState("");
     const [imageSlide,setImageSlide] = useState([]);
     

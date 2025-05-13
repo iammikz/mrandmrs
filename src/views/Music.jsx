@@ -24,7 +24,10 @@ const Music = (prop) => {
     }
 
   return (
-    <div class="fontHoneybee" onClick={togglePlay}>{!enableSound ? 'Playing' : 'Touch to Play'} Music</div>
+    <>
+        <div class="fontHoneybee" onClick={togglePlay}>{!enableSound ? 'Playing' : 'Touch to Play'} Music</div>
+        <div class=""><link rel="stylesheet" href="https://iammikz.github.io/mrandmrs" />https://iammikz.github.io/mrandmrs</div>
+    </>
   )
 }
 
